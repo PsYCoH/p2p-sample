@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+/** reset*/
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Core Styles */
+*,
+body,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*,
+html {
+  color: #000;
+  font: 16px/1em "Roboto", sans-serif;
+  outline: 0;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  cursor: default;
+  overflow-x: hidden;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h5,
+p {
+  margin: 0;
+  padding: 1em 0;
+  line-height: 1.5em;
+  font-weight: 300;
+}
+
+/* ScrollBar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #757575;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #002c60;
+}
+
+
+/* Main Style */
+/* main {
+} */
+
+.main-container {
+    width: 1440px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+[role="row-group"],
+[role="row"] {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: 600;
+    line-height: 1 !important;
+    align-items: center;
+}
+
+
+[role="column-header"],
+[role="table"], [role="cell"] {
+	overflow: hidden;
+	/* white-space: nowrap; */
+	text-overflow: ellipsis;
+
+	/* Minimum single cell width (cell padding and border deducted) */
+	/* 5% means that (up to) 20 columns are displayed side by side (100% / 20 = 5%) */
+	flex: 1 1 calc(5% - 20px - 2px);
+	-webkit-flex: calc(5% - 20px - 2px);
+	padding: 20px 10px;
+	line-height: 21px;
+	color: rgb(145, 136, 136);
+}
+
+[role="cell"] {
+    font-weight: 400;
+}
+
+span[role="cell"][data-header="Action"] {
+    display: flex;
+    gap:   0.5em;
+    flex-direction: column;
+}
+
+div.tableHead[role="row-group"] [role="row"] {
+	background: #1D5FD1;
+}
+
+div.tableHead[role="row-group"] [role="column-header"] {
+	color: #fff;
+}
+
+.rowContent {
+    flex: 1 1 100%;
+    display: none;
+    order: 1;
+    white-space: normal;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+/* Label */
+span[role="cell"] label {
+	width: 40px;
+	min-width: 40px;
+	border-radius: 50%;
+	margin: 0 auto;
+	line-height: 38px;
+	height: 40px;
+	background: #9d9d9d;
+	display: block;
+	cursor: pointer;
+    font-weight: 800;
+}
+
+span[role="cell"] label:before {
+    display: inline-block;
+    content: "⌵";
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+span[role="cell"] label:hover,
+input[type="checkbox"]:checked~span[role="cell"] label {
+	background: #1D5FD1;
+}
+
+input[type="checkbox"]:checked~span[role="cell"] label:before {
+	transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+	top: 3px;
+	color: #FFF;
+}
+
+input[type="checkbox"]:checked~.rowContent {
+    display: flex;
+}
+
+input[type="button"] {
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+}
